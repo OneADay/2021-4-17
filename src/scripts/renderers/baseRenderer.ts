@@ -20,4 +20,8 @@ export abstract class BaseRenderer{
     public setCompleteCallback(completeCallback: any) {
 
     }
+
+    public resize() {
+        
+    }
 }

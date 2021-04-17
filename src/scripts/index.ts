@@ -8,21 +8,24 @@ import DebugUI from './debug/ui';
 import P5Renderer from './renderers/p5Renderer';
 
 class App {
+    debugging: boolean = false;
     debug: DebugUI;
     renderer: BaseRenderer;
     recorder: BaseRecorder;
 
     constructor() {        
-        const creator = new URLSearchParams(window.location.search).get('creator')
-        const viewer = new URLSearchParams(window.location.search).get('viewer')
+        const creator = new URLSearchParams(window.location.search).get('creator');
+        const viewer = new URLSearchParams(window.location.search).get('viewer');
+        const debugging = new URLSearchParams(window.location.search).get('debug');
 
         let width = window.innerWidth;
         let height = window.innerHeight;
+        console.log('yes', debugging);
 
-        
-        if (creator !== null) {
-            width = 300;
-            height = 300;
+        if (debugging !== null) {
+            this.debugging = true;
+            width = 600;
+            height = 600;
             this.debug = new DebugUI();
             this.debug.recordBtn.addEventListener('click', () => this.handleRecordBtnClick())
             this.debug.formatSelect.addEventListener('change', () => this.handleFormatSelectChange())
@@ -31,6 +34,8 @@ class App {
         }
 
         this.renderer = new P5Renderer(width, height);
+
+        window.addEventListener('resize', () => this.resize());
 
         this.animation();
     }
@@ -68,6 +73,12 @@ class App {
             this.recorder.update();
         }
         requestAnimationFrame(() => this.animation());
+    }
+
+    resize() {
+        if (!this.debugging) {
+            this.renderer.resize();
+        }
     }
     
 }

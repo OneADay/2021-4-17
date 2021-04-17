@@ -154,6 +154,10 @@ export default class CanvasRenderer implements BaseRenderer{
         this.completeCallback = completeCallback;
     }
 
+    public resize() {
+
+    }
+    
     randomX(i: number) {
         return (WIDTH / 2) + Math.sin(i) * ( 50 * srandom());
     }

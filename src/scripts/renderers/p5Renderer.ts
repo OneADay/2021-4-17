@@ -15,7 +15,9 @@ export default class P5Renderer implements BaseRenderer{
     items: any = [];
 
     canvas: HTMLCanvasElement;
-    ctx: CanvasRenderingContext2D;
+    renderer: any;
+    s: any;
+
     maxSize = 10;
     completeCallback: any;
     delta = 0;
@@ -40,8 +42,9 @@ export default class P5Renderer implements BaseRenderer{
     }
 
     protected setup(s) {
-        let renderer = s.createCanvas(this.width, this.height);
-        this.canvas = renderer.canvas;
+        this.s = s;
+        this.renderer = s.createCanvas(this.width, this.height);
+        this.canvas = this.renderer.canvas;
 
         s.background(0, 0, 0, 255);
         s.frameRate(20);
@@ -108,6 +111,11 @@ export default class P5Renderer implements BaseRenderer{
 
     public setCompleteCallback(completeCallback: any) {
         this.completeCallback = completeCallback;
+    }
+
+    public resize() {
+        this.s.resizeCanvas(window.innerWidth, window.innerHeight);
+        this.s.background(0, 0, 0, 255);
     }
 
 }

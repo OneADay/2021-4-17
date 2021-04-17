@@ -246,4 +246,8 @@ export default class ThreeRenderer implements BaseRenderer{
             delete materials[ obj.uuid ];
         }
     }
+
+    public resize() {
+
+    }
 }
