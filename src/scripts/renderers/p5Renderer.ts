@@ -52,7 +52,7 @@ export default class P5Renderer implements BaseRenderer{
         if (this.animating) {
 
             s.blendMode(s.BLEND);
-            s.background(0, 0, 0, 15);
+            s.background(0, 0, 0, 20);
 
             s.blendMode(s.ADD);
             s.fill(0, 0);
