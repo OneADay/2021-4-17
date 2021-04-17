@@ -62,7 +62,9 @@ export default class P5Renderer implements BaseRenderer{
 
             s.translate(s.width/2, s.height/2);
 
-            for (let i = 0; i < 10; i++) {
+            let numberOfCircles = 10;
+
+            for (let i = 0; i < numberOfCircles; i++) {
                 let minRadius = 70;
                 let maxRadius = 120;// + s.sin(aoff) * 10;
 
