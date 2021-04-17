@@ -44,7 +44,7 @@ export default class P5Renderer implements BaseRenderer{
         this.canvas = renderer.canvas;
 
         s.background(0, 0, 0, 255);
-        s.frameRate(15);
+        s.frameRate(20);
         //s.noLoop();
     }
 
@@ -62,7 +62,7 @@ export default class P5Renderer implements BaseRenderer{
 
             s.translate(s.width/2, s.height/2);
 
-            let numberOfCircles = 10;
+            let numberOfCircles = 10;   //if not looping draw 100 otherwise 10
 
             for (let i = 0; i < numberOfCircles; i++) {
                 let minRadius = 70;
